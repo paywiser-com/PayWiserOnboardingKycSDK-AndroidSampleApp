@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">PayWiser KYC Sample App</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="setting_menu_name">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="whitelabel_endpoint">KYC Whitelabel Endpoint</string>
+    <string name="sdk_endpoint">KYC SDK Endpoint</string>
+    <string name="sdk_settings">KYC SDK Settings</string>
+    <string name="user_data">Predefined user data</string>
+
+
+    <string name="url_title">Url</string>
+    <string name="username_title">Username</string>
+    <string name="password_title">Password</string>
+
+
+    <string name="videoMode_attended_title">Attended</string>
+    <string name="human_verification_title">Human verification</string>
+    <string name="language_title">Language</string>
+
+
+    <string name="first_name_title">First name</string>
+    <string name="middle_name_title">Middle name</string>
+    <string name="last_name_title">Last name</string>
+    <string name="email_title">Email</string>
+    <string name="address1_title">Address 1</string>
+    <string name="address2_title">Address 2</string>
+    <string name="address3_title">Address 3</string>
+    <string name="zip_code_title">Zip code</string>
+    <string name="city_title">City</string>
+    <string name="state_title">State</string>
+
+    <string name="button_start_kyc">Start KYC</string>
+    <string name="button_retrieve_kyc_data">Get last KYC data</string>
+</resources>

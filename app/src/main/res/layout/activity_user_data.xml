@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDataActivity">
+
+    <TextView
+        android:id="@+id/tvKycFailed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="KYC Failed"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvKycFailedMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvKycFailed" />
+
+    <TextView
+        android:id="@+id/tvKycSuccessful"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="KYC Successful"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvKycError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Error retrieving data"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvKycErrorMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvKycError" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="-1dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvKycSuccessful"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvKycProcess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="KYC info"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvKycProcessModeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Mode: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycProcess" />
+
+            <TextView
+                android:id="@+id/tvKycProcessModeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycProcessModeTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycProcess"
+                tools:text="Unattended" />
+
+            <TextView
+                android:id="@+id/tvKycProcessUserVerificationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Human verification: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycProcessModeTitle" />
+
+            <TextView
+                android:id="@+id/tvKycProcessUserVerificationValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycProcessUserVerificationTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycProcessModeTitle"
+                tools:text="Not requested" />
+
+            <TextView
+                android:id="@+id/tvKycProcessStatusTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Human verification status: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycProcessUserVerificationTitle" />
+
+            <TextView
+                android:id="@+id/tvKycProcessStatusValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycProcessStatusTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycProcessUserVerificationTitle"
+                tools:text="None" />
+
+            <TextView
+                android:id="@+id/tvKycDocument"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Document info"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycProcessStatusTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentNotAvailableMessage"
+                android:layout_width="361dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="Data is not yet available please check the data a bit later..."
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocument" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentClassificationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Classification: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocument" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentClassificationValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentClassificationTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocument"
+                tools:text="ClassificationType" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentTypeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Type: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentClassificationTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentTypeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentTypeTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentClassificationTitle"
+                tools:text="Document type" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentIssuerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Issuer: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentTypeTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentIssuerValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentIssuerTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentTypeTitle"
+                tools:text="Issuer" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentExpiryDateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Expiry date: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentIssuerTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentExpiryDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentExpiryDateTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentIssuerTitle"
+                tools:text="202104" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentNumberTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Document number: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentExpiryDateTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentNumberValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentNumberTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentExpiryDateTitle"
+                tools:text="PB1342234" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentFirstNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="First name: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentNumberTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentFirstNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentFirstNameTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentNumberTitle"
+                tools:text="John" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentLastNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Last name: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentFirstNameTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentLastNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentLastNameTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentFirstNameTitle"
+                tools:text="Doe" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentBirthDateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Birth date: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentLastNameTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentBirthDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentBirthDateTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentLastNameTitle"
+                tools:text="19920302" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentGenderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Gender: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentBirthDateTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentGenderValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentGenderTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentBirthDateTitle"
+                tools:text="Male" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentNationalityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Nationality: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentGenderTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentNationalityValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentNationalityTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentGenderTitle"
+                tools:text="Slo" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentPersonalNumberTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Personal number: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentNationalityTitle" />
+
+            <TextView
+                android:id="@+id/tvKycDocumentPersonalNumberValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycDocumentPersonalNumberTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycDocumentNationalityTitle"
+                tools:text="323421" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tvKycDocumentPersonalNumberTitle,tvKycDocumentNotAvailableMessage"/>
+
+            <TextView
+                android:id="@+id/tvKycPersonalData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Personal info"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataFirstNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="First name: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalData" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataFirstNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataFirstNameTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalData"
+                tools:text="John" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataMiddleNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Middle name: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataFirstNameTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataMiddleNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataMiddleNameTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataFirstNameTitle"
+                tools:text="Little" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataLastNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Last name: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataMiddleNameTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataLastNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataLastNameTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataMiddleNameTitle"
+                tools:text="Doe" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataPhoneNumberTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Phone number: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataLastNameTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataPhoneNumberValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataPhoneNumberTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataLastNameTitle"
+                tools:text="+412313423412" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataEmailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Email: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataPhoneNumberTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataEmailValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataEmailTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataPhoneNumberTitle"
+                tools:text="email@mail.co" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataAddress1Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Address 1: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataEmailTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataAddress1Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataAddress1Title"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataEmailTitle"
+                tools:text="address 1" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataAddress2Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Address 2: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataAddress1Title" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataAddress2Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataAddress2Title"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataAddress1Title"
+                tools:text="address 2" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataAddress3Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Address 3: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataAddress2Title" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataAddress3Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataAddress3Title"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataAddress2Title"
+                tools:text="address 3" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataZipCodeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="Zip code: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataAddress3Title" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataZipCodeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataZipCodeTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataAddress3Title"
+                tools:text="1211" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataCityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="City: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataZipCodeTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataCityValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataCityTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataZipCodeTitle"
+                tools:text="Ljubljana" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataStateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="State: "
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataCityTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataStateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataStateTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataCityTitle"
+                tools:text="" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataCountryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:text="Country: "
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataStateTitle" />
+
+            <TextView
+                android:id="@+id/tvKycPersonalDataCountryValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/tvKycPersonalDataCountryTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKycPersonalDataStateTitle"
+                tools:text="Slo" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
