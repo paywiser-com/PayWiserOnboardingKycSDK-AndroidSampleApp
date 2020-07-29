@@ -94,6 +94,11 @@
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
+            app:key="userDataMobileNumber"
+            app:title="@string/mobile_number_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
             app:key="userDataAddress1"
             app:title="@string/address1_title"
             app:useSimpleSummaryProvider="true" />

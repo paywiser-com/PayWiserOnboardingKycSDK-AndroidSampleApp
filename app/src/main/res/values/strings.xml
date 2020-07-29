@@ -23,6 +23,7 @@
     <string name="first_name_title">First name</string>
     <string name="middle_name_title">Middle name</string>
     <string name="last_name_title">Last name</string>
+    <string name="mobile_number_title">Mobile number</string>
     <string name="email_title">Email</string>
     <string name="address1_title">Address 1</string>
     <string name="address2_title">Address 2</string>

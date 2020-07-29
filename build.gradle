@@ -19,7 +19,7 @@ allprojects {
         google()
         jcenter()
         maven { url "http://dl.bintray.com/paywiser/PayWiser.Onboarding.Kyc-Android-SDK" }
-        //maven { url "C:/Development/maven/repo" }
+        //maven { url "C:/Development/Maven local/repo" }
     }
 }
 
