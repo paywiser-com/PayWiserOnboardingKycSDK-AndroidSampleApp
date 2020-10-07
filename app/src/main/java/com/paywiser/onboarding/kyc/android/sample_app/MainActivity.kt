@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.green
 import androidx.preference.PreferenceManager
 import com.paywiser.onboarding.kyc.android.sdk.PayWiserOnboardingKyc
-import com.paywiser.onboarding.kyc.android.sdk.data.enums.VideoMode
 import com.paywiser.onboarding.kyc.android.sdk.data.model.KycCredentials
 import com.paywiser.onboarding.kyc.android.sdk.data.model.KycSettings
 import com.paywiser.onboarding.kyc.android.sdk.data.model.KycUserData
@@ -19,7 +20,6 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var prefs: SharedPreferences
-    var kycID: String = ""
 
     companion object {
         const val  KYC_SDK_ACTIVITY_REQUEST_CODE = 1
@@ -32,21 +32,15 @@ class MainActivity : AppCompatActivity() {
         setDefaultSettings()
 
         btnStartKyc.setOnClickListener {
-            val videoMode = getVideoMode()
             PayWiserOnboardingKyc.startKyc(this@MainActivity,
                 KYC_SDK_ACTIVITY_REQUEST_CODE,
                 KycCredentials(prefs.getString("sdkEndpointUrl", "")!!, prefs.getString("sdkEndpointUsername", "")!!, prefs.getString("sdkEndpointPassword", "")!!),
-                KycSettings(UUID.randomUUID().toString(), videoMode,  getHumanVerification(videoMode), prefs.getString("language", "en")!!),
+                KycSettings(UUID.randomUUID().toString(), prefs.getString("language", "en")!!, prefs.getString("referenceNumber", null), prefs.getBoolean("createIban", false)),
                 KycUserData(prefs.getString("userDataFirstName", "")!!, prefs.getString("userDataMiddleName", "")!!, prefs.getString("userDataLastName", "")!!, prefs.getString("userDataEmail", "")!!,   prefs.getString("userDataMobileNumber", "")!!, prefs.getString("userDataAddress1", "")!!
                   , prefs.getString("userDataAddress2", "")!!, prefs.getString("userDataAddress3", "")!!, prefs.getString("userDataZipCode", "")!!, prefs.getString("userDataCity", "")!!, prefs.getString("userDataState", "")!!)
             )
         }
 
-        btnRetrieveKycData.setOnClickListener {
-            startActivity(Intent(this@MainActivity, UserDataActivity::class.java).apply {
-                putExtra("KycID", kycID)
-            })
-        }
         tvVersion.text = BuildConfig.VERSION_NAME.toString()
     }
 
@@ -56,17 +50,22 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == KYC_SDK_ACTIVITY_REQUEST_CODE) {
             when(val result = PayWiserOnboardingKyc.getKycResult(data!!)) {
                 is PayWiserOnboardingKycResult.Success -> {
-                    kycID = result.kycID
-                    startActivity(Intent(this@MainActivity, UserDataActivity::class.java).apply {
-                        putExtra("KycID", result.kycID)
-                    })
-                    btnRetrieveKycData.isEnabled = true
+
+                    tvStatus.text = "Successfull"
+                    tvStatus.setTextColor(ContextCompat.getColor(this@MainActivity, android.R.color.holo_green_dark))
+                    tvKycReferenceID.text = result.kycReferenceID?:""
+                    tvReferenceNumber.text = result.referenceNumber?:""
+                    tvPersonID.text = result.personID?:""
+                    tvKycID.text = result.kycID?:""
+
                 }
                 is PayWiserOnboardingKycResult.Failure -> {
-                    startActivity(Intent(this@MainActivity, UserDataActivity::class.java).apply {
-                        putExtra("FailedReason", "%s (%s)".format(result.statusCode, result.statusDescription))
-                    })
-                    btnRetrieveKycData.isEnabled = false
+                    tvStatus.text = "Failed with status code: %s (%s)".format(result.statusCode, result.statusDescription)
+                    tvStatus.setTextColor(ContextCompat.getColor(this@MainActivity, android.R.color.holo_red_dark))
+                    tvKycReferenceID.text = result.kycReferenceID?:""
+                    tvReferenceNumber.text = result.referenceNumber?:""
+                    tvPersonID.text = result.personID?:""
+                    tvKycID.text = result.kycID?:""
                 }
             }
         }
@@ -87,32 +86,14 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun getVideoMode(): VideoMode {
-        return when(prefs.getBoolean("videoMode", false)) {
-            true -> VideoMode.Attended
-            false -> VideoMode.Unattended
-        }
-    }
-
-    private fun getHumanVerification(videoMode: VideoMode): Boolean {
-        return when(videoMode) {
-            VideoMode.Attended -> false
-            VideoMode.Unattended -> prefs.getBoolean("humanVerification", false)
-        }
-    }
-
     private fun setDefaultSettings() {
 
         if (!prefs.getBoolean("settingsSet", false)) {
             val editor = prefs.edit()
-            editor.putString("whitelabelEndpointUrl", "https://onboarding-kyc-dev.paywiser.eu/Whitelabel/")
-            editor.putString("whitelabelEndpointUsername", "aaa")
-            editor.putString("whitelabelEndpointPassword", "bbb")
-            editor.putString("sdkEndpointUrl", "https://onboarding-kyc-dev.paywiser.eu/VideoID/")
+            editor.putString("sdkEndpointUrl", "https://onboarding-kyc-dev.paywiser.eu/mobile/")
             editor.putString("sdkEndpointUsername", "111")
             editor.putString("sdkEndpointPassword", "222")
-            editor.putBoolean("videoMode", false)
-            editor.putBoolean("humanVerification", false)
+            editor.putBoolean("createIban", false)
             editor.putString("language", "en")
             editor.putBoolean("settingsSet", true)
             editor.commit()

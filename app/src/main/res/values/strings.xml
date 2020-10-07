@@ -4,19 +4,18 @@
     <string name="setting_menu_name">Settings</string>
 
     <!-- Preference Titles -->
-    <string name="whitelabel_endpoint">KYC Whitelabel Endpoint</string>
+
     <string name="sdk_endpoint">KYC SDK Endpoint</string>
     <string name="sdk_settings">KYC SDK Settings</string>
     <string name="user_data">Predefined user data</string>
-
 
     <string name="url_title">Url</string>
     <string name="username_title">Username</string>
     <string name="password_title">Password</string>
 
 
-    <string name="videoMode_attended_title">Attended</string>
-    <string name="human_verification_title">Human verification</string>
+    <string name="reference_number">Reference number</string>
+    <string name="create_iban">Create IBAN</string>
     <string name="language_title">Language</string>
 
 
@@ -34,4 +33,10 @@
 
     <string name="button_start_kyc">Start KYC</string>
     <string name="button_retrieve_kyc_data">Get last KYC data</string>
+
+    <string name="activity_status">Status: </string>
+    <string name="activity_kyc_reference_id">KYC reference ID: </string>
+    <string name="activity_reference_number">Reference number: </string>
+    <string name="activity_person">Person ID: </string>
+    <string name="activity_kyc_id">KYC ID: </string>
 </resources>

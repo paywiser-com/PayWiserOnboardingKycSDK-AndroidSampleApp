@@ -2,34 +2,12 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/whitelabel_endpoint">
-
-        <EditTextPreference
-            app:key="whitelabelEndpointUrl"
-            app:title="@string/url_title"
-            app:defaultValue="https://onboarding-kyc-dev.paywiser.eu/Whitelabel/"
-            app:useSimpleSummaryProvider="true" />
-
-        <EditTextPreference
-            app:key="whitelabelEndpointUsername"
-            app:title="@string/username_title"
-            app:defaultValue="aaa"
-            app:useSimpleSummaryProvider="true" />
-
-        <EditTextPreference
-            app:key="whitelabelEndpointPassword"
-            app:title="@string/password_title"
-            app:defaultValue="bbb"
-            app:useSimpleSummaryProvider="true" />
-
-    </PreferenceCategory>
-
     <PreferenceCategory app:title="@string/sdk_endpoint">
 
         <EditTextPreference
             app:key="sdkEndpointUrl"
             app:title="@string/url_title"
-            app:defaultValue="https://onboarding-kyc-dev.paywiser.eu/VideoID/"
+            app:defaultValue="https://onboarding-kyc-dev.paywiser.eu/mobile/"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
@@ -48,18 +26,17 @@
 
     <PreferenceCategory app:title="@string/sdk_settings">
 
-        <SwitchPreferenceCompat
-            app:key="videoMode"
-            app:title="@string/videoMode_attended_title"
-            app:defaultValue="false"
-            app:disableDependentsState="true"/>
+        <EditTextPreference
+            app:key="referenceNumber"
+            app:title="@string/reference_number"
+            app:defaultValue=""
+            app:useSimpleSummaryProvider="true" />
 
         <SwitchPreferenceCompat
-            app:key="humanVerification"
-            app:title="@string/human_verification_title"
+            app:key="createIban"
+            app:title="@string/create_iban"
             app:defaultValue="false"
-            app:dependency="videoMode"
-            android:disableDependentsState="true"/>
+            app:disableDependentsState="true"/>
 
         <ListPreference
             app:key="language"
