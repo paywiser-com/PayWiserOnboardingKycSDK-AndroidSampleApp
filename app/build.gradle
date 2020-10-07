@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.paywiser.onboarding.kyc.android.sample_app"
+        applicationId "com.paywiser.onboarding.kyc.android.sample_appv2"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 3
