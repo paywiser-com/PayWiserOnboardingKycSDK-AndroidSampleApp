@@ -105,6 +105,11 @@
             app:title="@string/state_title"
             app:useSimpleSummaryProvider="true" />
 
+        <EditTextPreference
+            app:key="userDataCountry"
+            app:title="@string/country_title"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

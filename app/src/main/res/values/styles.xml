@@ -11,6 +11,7 @@
     <style name="PayWiserOnboardingKycSdkTheme" parent="AppTheme">
         <item name="pwEditTextInputLayoutStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
         <item name="pwDropDownInputLayoutStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu</item>
+        <item name="pwDocumentTypeButtonStyle">@style/Widget.MaterialComponents.Button</item>
     </style>
 
 </resources>

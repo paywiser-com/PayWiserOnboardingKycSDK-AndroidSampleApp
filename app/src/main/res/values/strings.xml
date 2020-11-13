@@ -30,6 +30,7 @@
     <string name="zip_code_title">Zip code</string>
     <string name="city_title">City</string>
     <string name="state_title">State</string>
+    <string name="country_title">Country</string>
 
     <string name="button_start_kyc">Start KYC</string>
     <string name="button_retrieve_kyc_data">Get last KYC data</string>
