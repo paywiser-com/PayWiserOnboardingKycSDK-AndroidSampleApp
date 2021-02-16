@@ -32,12 +32,6 @@
             app:defaultValue=""
             app:useSimpleSummaryProvider="true" />
 
-        <SwitchPreferenceCompat
-            app:key="createIban"
-            app:title="@string/create_iban"
-            app:defaultValue="false"
-            app:disableDependentsState="true"/>
-
         <ListPreference
             app:key="language"
             app:defaultValue="en"

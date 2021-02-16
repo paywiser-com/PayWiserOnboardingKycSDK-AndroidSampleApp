@@ -14,4 +14,9 @@
         <item name="pwDocumentTypeButtonStyle">@style/Widget.MaterialComponents.Button</item>
     </style>
 
+    <style name="PayWiserOnboardingKycSdkTheme.Text.Title" parent="PayWiserOnboardingKycSdkTheme">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">?android:attr/colorPrimary</item>
+    </style>
+
 </resources>

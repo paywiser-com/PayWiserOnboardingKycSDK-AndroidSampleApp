@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.green
 import androidx.preference.PreferenceManager
 import com.paywiser.onboarding.kyc.android.sdk.PayWiserOnboardingKyc
 import com.paywiser.onboarding.kyc.android.sdk.data.model.KycCredentials
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             PayWiserOnboardingKyc.startKyc(this@MainActivity,
                 KYC_SDK_ACTIVITY_REQUEST_CODE,
                 KycCredentials(prefs.getString("sdkEndpointUrl", "")!!, prefs.getString("sdkEndpointUsername", "")!!, prefs.getString("sdkEndpointPassword", "")!!),
-                KycSettings(UUID.randomUUID().toString(), prefs.getString("language", "en")!!, prefs.getString("referenceNumber", null), prefs.getBoolean("createIban", false)),
+                KycSettings(UUID.randomUUID().toString(), prefs.getString("language", "en")!!, prefs.getString("referenceNumber", null)),
                 KycUserData(prefs.getString("userDataFirstName", "")!!, prefs.getString("userDataMiddleName", "")!!, prefs.getString("userDataLastName", "")!!, prefs.getString("userDataEmail", "")!!,   prefs.getString("userDataMobileNumber", "")!!, prefs.getString("userDataAddress1", "")!!
                   , prefs.getString("userDataAddress2", "")!!, prefs.getString("userDataAddress3", "")!!, prefs.getString("userDataZipCode", "")!!, prefs.getString("userDataCity", "")!!, prefs.getString("userDataState", "")!!, prefs.getString("userDataCountry", "")!!)
             )
@@ -93,7 +92,6 @@ class MainActivity : AppCompatActivity() {
             editor.putString("sdkEndpointUrl", "https://onboarding-kyc-dev.paywiser.eu/mobile/")
             editor.putString("sdkEndpointUsername", "111")
             editor.putString("sdkEndpointPassword", "222")
-            editor.putBoolean("createIban", false)
             editor.putString("language", "en")
             editor.putBoolean("settingsSet", true)
             editor.commit()
