@@ -18,8 +18,13 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "http://dl.bintray.com/paywiser/PayWiser.Onboarding.Kyc-Android-SDK" }
         //maven { url "D:/Maven local/repo" }
+        maven { url "https://maven.pkg.github.com/paywiser-com/integration"
+            credentials {
+                username = "PayWiser-Integration"
+                password = "@CheckDocumentationForValidToken"
+            }
+        }
     }
 }
 
