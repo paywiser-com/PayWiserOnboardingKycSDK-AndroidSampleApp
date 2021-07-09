@@ -17,6 +17,7 @@
     <style name="PayWiserOnboardingKycSdkTheme.Text.Title" parent="PayWiserOnboardingKycSdkTheme">
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:textColor">?android:attr/colorPrimary</item>
+        <item name="android:tint">?android:attr/colorPrimary</item>
     </style>
 
 </resources>
