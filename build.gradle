@@ -18,7 +18,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "D:/Maven local/repo" }
+        //maven { url "D:/Maven local/repo" }
         maven { url "https://maven.pkg.github.com/paywiser-com/integration"
             credentials {
                 username = "PayWiser-Integration"
