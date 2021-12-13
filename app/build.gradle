@@ -11,8 +11,8 @@ android {
         applicationId "com.paywiser.onboarding.kyc.android.sample_appv3"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 12
-        versionName "v3.7.0"
+        versionCode 13
+        versionName "v3.7.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -52,7 +52,7 @@ dependencies {
     //implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     //implementation 'com.github.paywiser-com.com.paywiser.onboarding.kyc:android-sdk:3.0.0'
     //implementation 'paywiser.onboarding.kyc.android-sdk:com.paywiser.onboarding.kyc.android-sdk:3.0.0'
-    implementation 'com.paywiser.onboarding.kyc:android-sdk:3.7.0'
+    implementation 'com.paywiser.onboarding.kyc:android-sdk:3.7.1'
 
     //Retrofit2
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
