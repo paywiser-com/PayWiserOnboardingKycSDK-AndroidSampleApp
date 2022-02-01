@@ -12,7 +12,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 13
-        versionName "v3.7.1"
+        versionName "v3.8.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -52,7 +52,8 @@ dependencies {
     //implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     //implementation 'com.github.paywiser-com.com.paywiser.onboarding.kyc:android-sdk:3.0.0'
     //implementation 'paywiser.onboarding.kyc.android-sdk:com.paywiser.onboarding.kyc.android-sdk:3.0.0'
-    implementation 'com.paywiser.onboarding.kyc:android-sdk:3.7.1'
+    implementation 'com.paywiser.onboarding.kyc:android-sdk:3.8.0'
+    implementation 'com.google.guava:guava:31.0.1-android' // Needed to resolve issues in some cases with KYC lib version 3.8.0 and later.
 
     //Retrofit2
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
